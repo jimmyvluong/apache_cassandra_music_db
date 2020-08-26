@@ -1,5 +1,5 @@
 # apache_cassandra_music_db
-Modeling a Spotify-like music database using NoSQL within a Python wrapper.
+Modeling a Spotify-like music database using Apache Cassandra and NoSQL within a Python wrapper.
 
 ## Background
 This project creates an ETL pipeline that makes song data available for the analytics team at the startup Sparkify to understand what songs users are listening to.
