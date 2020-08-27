@@ -52,9 +52,17 @@ The .csv files have the following fields; most are self-explanatory:
 2. Create tables that are specifically tailored to the three queries of interest.
 3. Confirm that the queries return the correct values.
 
+## Learning Notes
+1. The brackets in Cassandra play a important role, if you wish to define PRIMARY KEY((a,b),c,d) This declaration would typically mean that you want to define your partitioning key as a,b. These are typically your "where" in CQL and c and d are clustering key, typically maintaining sorting order.
+
+## Queries
+1. Query 1: Primary Key is a combination of sessionId and itemInSession.
+2. Query 2: Primary Key is a combination of userId and sessionId, with itemInSession as a clustering column so that song can be sorted by itemInSession.
+3. Query 3: Primary key is song, with clustering columns firstName and lastName so that each user is only included in the query one time.
+
 ## Issues faced and solutions
 ### Part I.
-#### Issue: The .csv files did not combine in Part I, and only return 12 observations instead of 6,821 observations.
+#### Issue: The .csv files did not combine in Part I, and only returned 12 observations instead of 6,821 observations.
     # Join the file path and roots with the subdirectories using glob
     # Did not work: file_path_list = glob.glob(os.path.join(root,'*'))
     # Solution: Hard code the file path because above original code threw an error.
