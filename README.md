@@ -15,9 +15,33 @@ For example, here are filepaths to two files in this dataset:
 `event_data/2018-11-08-events.csv`
 `event_data/2018-11-09-events.csv`
 
-Below is an example of a single event file:
+The .csv files have the following fields; most are self-explanatory:
+- artist
+- auth: How the user gained authorization
+- firstName
+- gender
+- itemInSession
+- lastName
+- length
+- level
+- location
+- method
+- page
+- registration
+- sessionId
+- song
+- status
+- ts: timestamp
+- userId
 
-`{"num_songs": 1, "artist_id":..........................}`
+## Project File Structure
+1. `music_cassandra_db.ipynb` main project file. 
+2. `event_data` contains the .csv files
+3. `data_snippet_view.jpg` contains a snapshot of the csv data files extracted in Part 1 of `music_cassandra_db.ipynb`.
+4. `README.md` provides discussion on the project.
+5. `Annotated_Project_Notes.ipynb` an annotated version of `music_cassandra_db.ipynb` with more in-depth instructions.
 
+## Steps to Follow
 
+## Issues faced and solutions
 
