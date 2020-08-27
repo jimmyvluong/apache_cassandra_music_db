@@ -13,6 +13,7 @@ Currently, they don't have an easy way to query their data, which resides in a d
 For example, here are filepaths to two files in this dataset:
 
 `event_data/2018-11-08-events.csv`
+
 `event_data/2018-11-09-events.csv`
 
 The .csv files have the following fields; most are self-explanatory:
@@ -42,6 +43,19 @@ The .csv files have the following fields; most are self-explanatory:
 5. `Annotated_Project_Notes.ipynb` an annotated version of `music_cassandra_db.ipynb` with more in-depth instructions.
 
 ## Steps to Follow
+### Part I Pre-Process the files.
+1. Run the cells to extract relevant values from the collection of .csv files
+2. Verify that no rows were lost
+
+### Part II Run Apache Cassandra code to create tables.
+1. Create a cluster, connect to the cluster, create a keyspace, and set the keyspace.
+2. Create tables that are specifically tailored to the three queries of interest.
+3. Confirm that the queries return the correct values.
 
 ## Issues faced and solutions
-
+### Part I.
+#### Issue: The .csv files did not combine in Part I, and only return 12 observations instead of 6,821 observations.
+    # Join the file path and roots with the subdirectories using glob
+    # Did not work: file_path_list = glob.glob(os.path.join(root,'*'))
+    # Solution: Hard code the file path because above original code threw an error.
+    # file_path_list = glob.glob('/home/workspace/event_data/*.csv')
